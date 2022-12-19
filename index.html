@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+
+
+    <title>JS Day 1 Question</title>
+    <style>
+        pre {
+            background-color: white;
+            padding: 15px;
+            border: 3px solid grey;
+            border-radius: 10px;
+        }
+
+        pre:hover {
+            background-color: rgb(200, 200, 181);
+            box-shadow: 5px 5px 2px green;
+            /* transform: scale(0.85); */
+        }
+
+        body {
+            background-color: black;
+        }
+
+        p {
+            color: yellow;
+        }
+
+        h1 {
+            text-align: center;
+            color: aquamarine;
+            font-weight: bold;
+            font-size: 3em;
+            margin: 15px;
+        }
+
+       
+
+      
+    </style>
+</head>
+
+<body>
+    <h1 class="page-header">JS Handson 12 (Inheritance and Prototype)</h1>
+    <hr>
+    <div class="container-fluid">
+    <p><b>Create 2 objects - parent and child. Attach methods to parent and use those methods in child object using parents prototype</b></p>
+    <pre>
+        const parent = {
+            firstname : 'Reshma',
+            lastname : 'Gajbhiye',
+            addres : 'Nagpur',
+            fullname(){
+                return (`${this.firstname} ${this.lastname}`)
+            }
+        
+        }
+        
+        const child = {
+            __proto__:parent
+        }
+        console.log(child.fullname());
+    </pre>
+    <hr>
+
+    <p><b>Write code to explain prototype chaining</b></p>
+    <pre>
+        const parent = {
+            firstname : 'Reshma',
+            lastname : 'Gajbhiye',
+            addres : 'Nagpur',
+            fullname(){
+                return (`${this.firstname} ${this.lastname}`)
+            }
+        
+        }
+        
+        const child = {
+            __proto__:parent
+        }
+        const son = {
+            __proto__:child
+        }
+        
+        console.log(son.fullname());
+    </pre>
+    <hr>
+
+
+    <p><b>Add a method to calculate sum of all elements in Array in array's protype, use that method to calculate sum for multiple arrays</b></p>
+    <pre>
+        arr = [1, 2, 3, 4]
+        arr1 = [3, 2, 5, 4]
+        arr2 = [4, 2, 2, 4]
+        
+        const array = {
+        add: function (a){
+            sum=0;
+            for(i=0; i < a.length; i++){
+                sum = sum + a[i]
+            }
+            console.log(sum);
+        }
+        }
+        Array.__proto__=array
+        Array.add(arr1)
+    </pre>
+    <hr>
+
+
+    <p><b>Write a JavaScript function to retrieve all the names of object's own and inherited properties.</b></p>
+    <pre>
+
+        var obj = {
+            name : "Reshma",
+            course : "full-stack",
+            college : "Nagpur",
+            standard : 12
+        }
+        result = Object.keys(obj)
+        console.log(result);
+    </pre>
+        
+
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>
